@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+  page: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -30,6 +31,25 @@ export const Container = styled.div<ContainerProps>`
         &:hover {
           opacity: 0.6;
         }
+
+        ${({ page }) => {
+          if (page === 'dashboard') {
+            return css`
+              &#dashboard {
+                padding-bottom: 10px;
+                border-bottom: 2px solid #ff872c;
+              }
+            `;
+          }
+          if (page === 'import') {
+            return css`
+              &#import {
+                padding-bottom: 10px;
+                border-bottom: 2px solid #ff872c;
+              }
+            `;
+          }
+        }}
       }
     }
   }
